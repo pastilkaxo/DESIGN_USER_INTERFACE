@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Ruda:wght@400..900&display=swap");
+
+$middle_size: 40px;
+$low_size: 16px;
+$author_size: 12px;
+$search_size: 20px;
+$bold_weight: 900;
+$middle_weight: 700;
+$slider_width: 305px;
+$slider_height: 380px;
+
+@mixin slider-card-text {
+  font: {
+    size: $middle_size;
+    weight: $bold_weight;
+  }
+  color: white;
+  text-align: center;
+  width: 270px;
+}
+
+@mixin track-name-text {
+  font: {
+    size: $low_size;
+    weight: $middle_weight;
+  }
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+* {
+  font-family: "Ruda", sans-serif;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #147937;
+}
+
+header {
+  display: none;
+}
+
+.content .main_menu_tabs,
+.content .other_menu_tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+.content {
+  display: flex;
+  align-items: flex-start;
+  hr {
+    border: 1px solid black;
+    width: 90px;
+  }
+  aside {
+    margin-top: 33px;
+    margin-left: 50px;
+    .main_menu_tabs {
+      margin-bottom: $middle_size;
+    }
+  }
+  // ------------> Main
+  main > .slider,
+  .all_tracks,
+  .search_bar,
+  .track,
+  .track_part_one,
+  .track_part_two,
+  .track_name,
+  .slider_content,
+  .slider_cart_1,
+  .slider_cart_2,
+  .slider_cart_3,
+  .search_part_one {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  main {
+    margin-right: 170px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+    .slider {
+      gap: 17px;
+      .slider_content {
+        gap: $middle_size;
+        .slider_cart_1 {
+          width: $slider_width;
+          height: $slider_height;
+          background-image: url(./img/sliderImage.png);
+          h2 {
+            @include slider-card-text;
+          }
+        }
+        .slider_cart_2 {
+          width: $slider_width;
+          height: $slider_height;
+          background-image: url(./img/sliderImage.png);
+
+          h2 {
+            @include slider-card-text;
+          }
+        }
+        .slider_cart_3 {
+          width: $slider_width;
+          height: $slider_height;
+          background-image: url(./img/sliderImage.png);
+          h2 {
+            @include slider-card-text;
+          }
+        }
+      }
+    }
+    .all_tracks {
+      gap: 20px;
+      flex-direction: column;
+      width: 1000px;
+      .track {
+        background-color: #00b42b;
+        justify-content: space-between;
+        width: 100%;
+        border-radius: 20px;
+        .track_part_one {
+          margin-left: 20px;
+          gap: 20px;
+          padding: 5px;
+          .track_name {
+            @include track-name-text;
+            .track_author {
+              font-size: $author_size;
+            }
+          }
+        }
+        .track_part_two {
+          padding: 5px;
+          gap: 100px;
+          margin-right: 20px;
+          font-weight: $middle_weight;
+        }
+        .track_type {
+          font-weight: $middle_weight;
+          text-align: center;
+        }
+      }
+    }
+    .search_bar {
+      margin-top: 50px;
+      width: 995px;
+      height: 44px;
+      border-radius: 20px;
+      background-color: #d9d9d9;
+      justify-content: space-between;
+      .search_input {
+        background-color: #d9d9d9;
+        font-size: $search_size;
+        border: 0px;
+        outline: none;
+        margin-left: 6px;
+        width: 800px;
+      }
+      .search_part_one {
+        padding: 5px;
+      }
+      .filter_btn {
+        padding: 5px;
+      }
+    }
+  }
+}
+// ---------> Footer
+footer > .footer_logo,
+.main_footer,
+.main_footer_content,
+.footer_links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 15px;
+  gap: 180px;
+  margin-top: 30px;
+  width: 100%;
+  background-color: #4c9766;
+  .main_footer {
+    text-align: center;
+    gap: $search_size;
+    flex-direction: column;
+    .main_footer_content {
+      gap: 250px;
+      align-items: flex-start;
+    }
+    h2 {
+      font-size: $search_size;
+    }
+    p {
+      font-size: $author_size;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .footer_links {
+    gap: 30px;
+  }
+}
+
+@import "mobile.scss";
